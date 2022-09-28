@@ -1,0 +1,90 @@
+
+#f-card-sec {
+    margin-left: 100px;
+    width: 400px;
+    height: 300px;
+    background: #000;
+}
+.card #f-img-sec {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.card #f-img-sec #flag-video {
+    width: 400px;
+    height: 300px;
+    transition: .5s;
+}
+#f-card-sec:hover #f-img-sec #flag-video {
+    opacity: .5;
+    transform: translateX(30%);/*100%*/
+}
+.card #f-card-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;/*100%*/
+    height: 100%;
+    background: #E4316F;
+    transition: .5s;
+    transform-origin: left;
+    transform: perspective(2000px) rotateY(-90deg);
+}
+#f-card-sec:hover #f-card-details {
+    transform: perspective(2000px) rotateY(0deg);
+}
+#f-card-sec #f-card-details #f-card-center {
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#f-card-sec #f-card-details #f-card-center h1 {
+    margin: 0;
+    padding: 0;
+    color: #ff3636;
+    line-height: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+#f-card-sec #f-card-details #f-card-center h1 span {
+    font-size: 14px;
+    color: #262626;
+}
+#f-card-sec #f-card-details #f-card-center p {
+    margin: 10px 0;
+    padding: 0;
+    color: #262626;
+}
+#f-card-sec #f-card-details #f-card-center ul {
+    margin: 10px auto 0;
+    padding: 0;
+    display: table;
+}
+.#f-card-sec #f-card-details #f-card-center ul li {
+    list-style: none;
+    margin: 0 5px;
+    float: left;
+}
+
+#f-card-sec #f-card-details #f-card-center ul li a:hover {
+    background: #ff3636;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* flag with text */
+

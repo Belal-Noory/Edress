@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+ <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="./assets/img/favicon.png">
+
+<title>
+  
+
+  
+  Rudraksh Group
+
+  
+</title>
+
+
+
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+
+<!-- Nucleo Icons -->
+<link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+<link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+<!-- fontawesome -->
+<link href="assets/fontawesome/css/all.min.css" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+
+<!-- CSS Files -->
+
+
+
+<link id="pagestyle" href="./assets/css/material-kit.css?v=3.0.3" rel="stylesheet" />
+<link id="pagestyle" href="assets/manual/login-style.css" rel="stylesheet" />
+
+
+<!-- animation text -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.css" integrity="sha512-gFn7XRm5v3GlgOwAQ80SXDT8pyg6uaV9JbW2OkNx5Im2jR8zx2X/3DbHymcZnUraU+klZjRJqNfNkFN7SyR3fg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  </head>
+ <body>
+
+
+<img class="wave" src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png">
+	<div class="container">
+		<div class="img">
+			<img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg">
+		</div>
+		<div class="login-content">
+			<form>
+				<img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg">
+				<h2 class="title">Welcome</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Username</h5>
+           		   		<input type="text" class="input">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" class="input">
+            	   </div>
+            	</div>
+            	<a href="#">Forgot Password?</a>
+            	<input type="submit" class="btn" value="Login">
+            </form>
+        </div>
+    </div>
+
+<script>
+const inputs = document.querySelectorAll(".input");
+
+
+function addcl(){
+	let parent = this.parentNode.parentNode;
+	parent.classList.add("focus");
+}
+
+function remcl(){
+	let parent = this.parentNode.parentNode;
+	if(this.value == ""){
+		parent.classList.remove("focus");
+	}
+}
+
+
+inputs.forEach(input => {
+	input.addEventListener("focus", addcl);
+	input.addEventListener("blur", remcl);
+});
+
+
+</script>
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<div class="intro">
+  <h1>Motion Blur Experiment</h1>
+  <h2>by <a href="https://codepen.io/lbebber">Lucas Bebber</a></h2>
+  <p>Click on the button below</p>
+</div>
+<button class="open-modal">Open Modal</button>
+
+<div class="modal-overlay"></div>
+
+<div class="modal">
+  <button class="close-modal">×</button>
+  <div class="icon">
+    <i class="fa fa-user-plus"></i> 
+  </div>
+  <h1>Some Title</h1>
+  <input class="input-text" type="text" placeholder="some field"/>
+  <input class="input-text" type="text" placeholder="some other field"/>
+  <input class="input-submit" type="submit" value="Some Button"/>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters">
+    <defs>
+      <filter id="blur">
+          <feGaussianBlur id="blur-filter" in="SourceGraphic" stdDeviation="0,0" />
+      </filter>
+  </defs>
+</svg>
+
+<script>
+$(document).ready(function(){
+  var $obj=$(".modal")
+  		  ,$overlay=$(".modal-overlay")
+    ,blur=$("#blur-filter").get(0)
+  ;
+  
+  function setBlur(v){
+    blur.setAttribute("stdDeviation", v);
+  }
+  function getPos(){
+    return $obj.position();
+  }
+  
+  var lastPos=getPos();
+  function update(){
+    var pos=getPos();
+    var limit=20;
+    var dx=Math.min(limit,Math.abs(pos.left-lastPos.left)*0.5);
+    var dy=Math.min(limit,Math.abs(pos.top-lastPos.top)*0.5);
+    setBlur(dx+","+dy);
+    
+    lastPos=pos;
+    requestAnimationFrame(update);
+  }
+  update();
+  
+  var isOpen=false;
+  	function openModal(){
+      /*$overlay.css({
+        display:"block"
+      })*/
+      TweenMax.to($overlay,0.1,{autoAlpha:1});
+      
+      TweenMax.fromTo($obj,0.6,{y:-($(window).height()+$obj.height())},{delay:0.2,y:"0%",ease:Elastic.easeOut,easeParams:[1.1,0.7],force3D:true});
+  }
+  function closeModal(){
+    TweenMax.to($overlay,0.1,{delay:0.55,autoAlpha:0});
+    TweenMax.to($obj,0.55,{y:$(window).height()+$obj.height(),ease:Back.easeIn,force3D:true});
+  }
+  $(".open-modal").click(function(){
+	    openModal();
+  })
+  $(".close-modal,.modal-overlay,.input-submit").click(function(){
+    closeModal();
+  })
+  
+})
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--   Core JS Files   -->
+<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+
+
+
+
+<!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
+<script src="./assets/js/plugins/countup.min.js"></script>
+
+
+
+
+
+<script src="./assets/js/plugins/choices.min.js"></script>
+
+
+
+<script src="./assets/js/plugins/prism.min.js"></script>
+<script src="./assets/js/plugins/highlight.min.js"></script>
+
+
+
+<!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
+<script src="./assets/js/plugins/rellax.min.js"></script>
+<!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
+<script src="./assets/js/plugins/tilt.min.js"></script>
+<!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
+<script src="./assets/js/plugins/choices.min.js"></script>
+
+
+<!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+<script src="./assets/js/plugins/parallax.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+<!--  Google Maps Plugin    -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+<script src="./assets/js/material-kit.min.js?v=3.0.3" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+  if (document.getElementById('state1')) {
+    const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+    if (!countUp.error) {
+      countUp.start();
+    } else {
+      console.error(countUp.error);
+    }
+  }
+  if (document.getElementById('state2')) {
+    const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+    if (!countUp1.error) {
+      countUp1.start();
+    } else {
+      console.error(countUp1.error);
+    }
+  }
+  if (document.getElementById('state3')) {
+    const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+    if (!countUp2.error) {
+      countUp2.start();
+    } else {
+      console.error(countUp2.error);
+    };
+  }
+</script>
+
+
+
+  </body>
+</html>
+
+</body>
+</html>

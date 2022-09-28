@@ -1,0 +1,25 @@
+#card-news-container {
+  padding: 1rem 0rem;
+}
+
+#card-news-img {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#card-news-title {
+  margin-bottom: 0.3rem;
+}
+
+#card-news-cat {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+#fa-news-user {
+  margin-left: 1rem;
+}
+
+#card-news-footer {
+  font-size: 0.8rem;
+}
