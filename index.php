@@ -32,8 +32,6 @@ include("Master/header.php");
                 <p class="lead text-white opacity-7 animate__animated animate__fadeInTopRight bg-gradient-dark border-radius-md">
                   Pursue education with a higher standard of living.</p>
                 <a href="study-in-australia.php" class="btn bg-gradient-dark animate__animated animate__backInUp ">Read More <i class="fa-solid fa-arrow-right"></i> </a>
-
-
               </div>
             </div>
           </div>
@@ -50,7 +48,6 @@ include("Master/header.php");
                   You deser best study in Canada's best universities.</p>
                 <a href="study-in-canada.php" class="btn bg-gradient-dark animate__animated animate__backInUp ">Read
                   More <i class="fa-solid fa-arrow-right"></i> </a>
-
               </div>
             </div>
           </div>
@@ -87,7 +84,6 @@ include("Master/header.php");
 </header>
 
 <!-- About Section -->
-
 <section class="shadow-blur shadow-blur pt-3 pb-4 " id="count-stats">
   <div class="container">
     <div class="row">
@@ -165,88 +161,46 @@ include("Master/header.php");
 </div>
 
 <!-- Vision and Mission -->
-
 <div style="background-image: url(picture/header-background/vision.jpg); background-size:cover;">
   <div class="container-fluid w-80 ">
     <div class="row ">
-      <div class="col-lg-4">
-        <div class="card shadow opacity-10 mt-8">
-          <div class="card-body ">
-            <div class="author">
-              <div class="name">
-                <h4 class=" fs-3 bg-gradient-dark px-4 border-radius-lg shadow text-white font-weight-normal">Our
-                  Mission</h4>
-                <div class="stats text-primary">
-                </div>
-              </div>
-            </div>
-            <p>Our team is committed to providing an efficient and cost-effective professional service. We support our
-              clients with timely and accurate immigration advice and assistance about immigration laws and
-              legislation.</p>
-            <div class="rating mt-3">
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php 
+        $company_vision = [
+          ["title"=>"Our Mission","details"=>"Our team is committed to providing an efficient and cost-effective professional service. We support our
+          clients with timely and accurate immigration advice and assistance about immigration laws and
+          legislation.","stars"=>5],
+          ["title"=>"Our Team","details"=>"Our Team Rudraksh Group is a team of experienced & hard working members. Our people come from all over
+          the world, including Asia, the Mid-East, North America and Europe. Our staff members are trained in
+          immigration laws and procedures and have over 30 years of combined experience.","stars"=>5],
+          ["title"=>"Why us ?","details"=>"It's quite simple we charge the institutions overseas for our services. Being an ethical operator, we
+          do not have the policy of double charging, i.e., charging the institutions overseas as well as charging
+          you. We only bill the institutions for our services thus saving your significant amount of money that
+          you would incur otherwise. Immigration to another country is a life changing decision. Getting good
+          results – The First Time is important!.","stars"=>5],
+        ];
 
-
-
-
-      <div class="col-lg-4">
-        <div class="card shadow mt-8">
-          <div class="card-body">
-            <div class="author align-items-center">
-              <div class="name">
-                <h4 class="fs-3 bg-gradient-dark px-4 border-radius-lg shadow text-white font-weight-normal">Our Team
-                </h4>
-              </div>
-            </div>
-            <p>Our Team Rudraksh Group is a team of experienced & hard working members. Our people come from all over
-              the world, including Asia, the Mid-East, North America and Europe. Our staff members are trained in
-              immigration laws and procedures and have over 30 years of combined experience.</p>
-            <div class="rating mt-3">
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
+        foreach ($company_vision as $vison) {
+      ?>
       <div class="col-lg-4">
         <div class="card shadow  mt-8">
           <div class="card-body">
             <div class="author align-items-center">
               <div class="name">
-                <h4 class="fs-3 bg-gradient-dark px-4 border-radius-lg shadow text-white font-weight-normal">Why us ?
-                </h4>
-                <div class="stats text-primary">
-                </div>
+                <h4 class="fs-3 bg-gradient-dark px-4 border-radius-lg shadow text-white font-weight-normal"><?php echo $vison["title"] ?></h4>
               </div>
             </div>
-            <p>It's quite simple we charge the institutions overseas for our services. Being an ethical operator, we
-              do not have the policy of double charging, i.e., charging the institutions overseas as well as charging
-              you. We only bill the institutions for our services thus saving your significant amount of money that
-              you would incur otherwise. Immigration to another country is a life changing decision. Getting good
-              results – The First Time is important!.</p>
+            <p><?php echo $vison["details"] ?></p>
             <div class="rating mt-3">
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
-              <i class="fas fa-star text-primary"></i>
+              <?php 
+                for ($i=1; $i <= $vison["stars"]; $i++) { 
+                  echo "<i class='fas fa-star text-primary'></i>";
+                }
+              ?>
             </div>
           </div>
         </div>
       </div>
+      <?php } ?>
     </div>
   </div>
 
@@ -256,17 +210,12 @@ include("Master/header.php");
     <div class="row justify-content-center">
       <div class="col-10 py-4">
         <marquee direction="left">
-          <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/cana.png">
-          <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/aus.png">
-          <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/eur.png">
-          <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/ger.png">
-          <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/italy.png">
-          <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/malaysia.png">
-          <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/new.png">
-          <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/poland.png">
-          <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/sing.png">
-          <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/uk.png">
-          <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/usa.png">
+          <?php 
+            $flags = ["cana.png","aus.png","eur.png","ger.png","italy.png","malaysia.png","new.png","poland.png","sing.png","uk.png","usa.png"];
+            foreach ($flags as $flag) {
+          ?>
+            <img class="mx-6" alt="Image placeholder" style="width: 100px;" src="picture/flag/<?php echo $flag; ?>">
+          <?php } ?>
         </marquee>
       </div>
     </div>
