@@ -289,41 +289,34 @@ include("Master/header.php");
         ],
         [
           "title" => "Work Visa",
-          "details" => "he requirement & Procedure of obtaining Work Visa differs from country to country. Without obtaining
-          work visa an individual is not authorised to work in that country.",
+          "details" => "he requirement & Procedure of obtaining Work Visa differs from country to country. Without obtaining work visa an individual is not authorised to work in that country.",
           "img" => "student/work.jpg",
           "icon" => "fa-solid fa-person-digging"
         ],
         [
           "title" => "Permanent Residence Visa",
-          "details" => "Permanent Residence Visa enable an individual to work & Settle in another country. On completion of
-          certain parameters individual having P R Visa can get Citezenship of that country.",
+          "details" => "Permanent Residence Visa enable an individual to work & Settle in another country. On completion of certain parameters individual having P R Visa can get Citezenship of that country.",
           "img" => "student/pr.jpg",
           "icon" => "fa-solid fa-people-roof"
         ],
 
         [
           "title" => "Visitor Visa",
-          "details" => "When an individual want to visit family, friend, relative or for sports, music, craft & art purpose,
-          He/She needs Visitors Visa, which has different criteria for different country.",
+          "details" => "When an individual want to visit family, friend, relative or for sports, music, craft & art purpose, He/She needs Visitors Visa, which has different criteria for different country.",
           "img" => "student/visitor.jpg",
           "icon" => "fa-solid fa-handshake"
         ],
 
         [
           "title" => "Business Visa",
-          "details" => "Business Visa establish & facilitate trade & commerce link between two
-          countries. Short stay visa with EOI applying for business visa, if selected, advance for further
-          process.",
+          "details" => "Business Visa establish & facilitate trade & commerce link between two countries. Short stay visa with EOI applying for business visa, if selected, advance for further process.",
           "img" => "student/business.jpg",
           "icon" => "fa-solid fa-briefcase"
         ],
 
         [
           "title" => "Dependent Visa",
-          "details" => "When a lawful migrant have the required financial capability to support
-          his/her spouse, children or parents need to obtain Dependent Visa . Age, Marriage certificate &
-          support documents are required to obtain such visa.",
+          "details" => "When a lawful migrant have the required financial capability to support his/her spouse, children or parents need to obtain Dependent Visa . Age, Marriage certificate & support documents are required to obtain such visa.",
           "img" => "student/depend.jpg",
           "icon" => "fa-solid fa-people-group"
         ],
