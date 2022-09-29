@@ -144,62 +144,67 @@ $nav_items = array(
                                                 <div class="col-md-6">
                                                     <div class="input-group input-group-dynamic mb-4">
                                                         <label class="form-label">First Name</label>
-                                                        <input class="form-control" aria-label="First Name..." type="text">
+                                                        <input class="form-control" aria-label="First Name..." type="text" name="fname">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 ps-2">
                                                     <div class="input-group input-group-dynamic">
                                                         <label class="form-label">Phone Nomber</label>
-                                                        <input type="text" class="form-control" placeholder="" aria-label="Phone Number...">
+                                                        <input type="text" class="form-control" placeholder="" aria-label="Phone Number..." name="phone">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="mb-4">
                                                 <div class="input-group input-group-dynamic mt-4">
                                                     <label class="form-label">Email Address</label>
-                                                    <input type="email" class="form-control">
+                                                    <input type="email" class="form-control" name="email">
                                                 </div>
                                             </div>
                                             <div class="input-group input-group-dynamic ">
-                                                <select class="form-select text-center" aria-label="Visa Type">
+                                                <select class="form-select text-center" aria-label="Visa Type" name="visa">
                                                     <option selected disabled>Visa Type</option>
-                                                    <option value="1">Student Visa</option>
-                                                    <option value="2">Permenant Residency Visa</option>
-                                                    <option value="3">Work Visa</option>
-                                                    <option value="4">Tourist Visa</option>
-                                                    <option value="5">Business Visa</option>
-                                                    <option value="6">Dependent Visa</option>
-                                                    <option value="7">USA H-1B Visa</option>
-                                                    <option value="8">Canada Super Visa</option>
-                                                    <option value="9">USA O-1 Visa</option>
-                                                    <option value="10">UK Innovator Visa</option>
-                                                    <option value="11">USA EB-5 Visa</option>
+                                                    <option value="Student Visa">Student Visa</option>
+                                                    <option value="Permenant Residency Visa">Permenant Residency Visa</option>
+                                                    <option value="Work Visa">Work Visa</option>
+                                                    <option value="Tourist Visa">Tourist Visa</option>
+                                                    <option value="Business Visa">Business Visa</option>
+                                                    <option value="Dependent Visa">Dependent Visa</option>
+                                                    <option value="USA H-1B Visa">USA H-1B Visa</option>
+                                                    <option value="Canada Super Visa">Canada Super Visa</option>
+                                                    <option value="USA O-1 Visa">USA O-1 Visa</option>
+                                                    <option value="UK Innovator Visa">UK Innovator Visa</option>
+                                                    <option value="USA EB-5 Visa">USA EB-5 Visa</option>
                                                 </select>
                                             </div>
                                             <div class="input-group input-group-dynamic mt-4 ">
-                                                <select class="form-select text-center" aria-label="Country">
+                                                <select class="form-select text-center" aria-label="Country" name="country">
                                                     <option selected disabled>Select Country</option>
-                                                    <option value="1">Canada</option>
-                                                    <option value="2">UK</option>
-                                                    <option value="3">Australia</option>
-                                                    <option value="4">Germany</option>
-                                                    <option value="5">USA</option>
-                                                    <option value="6">Singapore</option>
-                                                    <option value="7">Poland</option>
-                                                    <option value="8">Europe</option>
-                                                    <option value="9">Italy</option>
-                                                    <option value="10">Malta</option>
-                                                    <option value="11">New Zealand</option>
-                                                    <option value="11">Schengen</option>
-                                                    <option value="11">Malesia</option>
+                                                    <option value="Canada">Canada</option>
+                                                    <option value="UK">UK</option>
+                                                    <option value="Australia">Australia</option>
+                                                    <option value="Germany">Germany</option>
+                                                    <option value="USA">USA</option>
+                                                    <option value="Singapore">Singapore</option>
+                                                    <option value="Poland">Poland</option>
+                                                    <option value="Europe">Europe</option>
+                                                    <option value="Italy">Italy</option>
+                                                    <option value="Malta">Malta</option>
+                                                    <option value="New Zealand">New Zealand</option>
+                                                    <option value="Schengen">Schengen</option>
+                                                    <option value="Malesia">Malesia</option>
                                                 </select>
                                             </div>
+                                            <input type="hidden" name="addenq">
                                             <div class="row mt-6">
-
                                                 <div class="col-md-12">
-                                                    <button type="submit" class="btn bg-gradient-primary w-100">Submit</button>
+                                                    <button type="button" class="btn bg-gradient-primary w-100" id="btnAddenq">
+                                                        <span class="fa fa-spinner fa-spin d-none"></span>
+                                                        <span class="fa fa-check d-none"></span>
+                                                        Submit
+                                                    </button>
                                                 </div>
                                             </div>
+                                            <span class="alert alert-success mt-1 p-2 d-block text-white d-none" id="msgalert">Thank you for sending enquiry ;)</span>
                                         </div>
                                     </form>
                                 </div>

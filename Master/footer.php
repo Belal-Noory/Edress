@@ -254,6 +254,11 @@
 <!--   Core JS Files   -->
 <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+  integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
 <!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
 <script src="./assets/js/plugins/countup.min.js"></script>
@@ -278,7 +283,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
 <script src="./assets/js/material-kit.min.js?v=3.0.3" type="text/javascript"></script>
 
-<script type="text/javascript">
+<script>
     if (document.getElementById('state1')) {
         const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
         if (!countUp.error) {
@@ -303,6 +308,32 @@
             console.error(countUp2.error);
         };
     }
+
+    $(document).ready(function(){
+        $("#btnAddenq").on("click",function(e){
+            e.preventDefault();
+            ths = $(this);
+            if(!$(ths).attr("sending"))
+            {
+                $(ths).children("span").first().removeClass("d-none");
+                $(ths).attr("sending",true);
+                $.post("database/controller.php", $("#contact-form").serialize(),function(data){
+                    console.log(data);
+                    if(data > 0)
+                    {
+                        $(ths).children("span").first().addClass("d-none");
+                        $(ths).children("span").last().removeClass("d-none");
+                        $(ths).removeAttr("sending");
+                        $("#msgalert").removeClass("d-none");
+                        $('#contact-form').trigger("reset");
+                        setTimeout(() => {
+                            $("#msgalert").addClass("d-none");
+                        }, 5000);
+                    }
+                });
+            }
+        });
+    });
 </script>
 
 
