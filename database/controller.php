@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("Model.php");
 
 $model = new Model();
@@ -35,6 +36,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else{
             echo 0;
         }
+    }
+
+    // login
+    if(isset($_POST["login"]))
+    {
+        $username = $_POST["loginUsername"];
+        $password = $_POST["loginPassword"];
+        if($username == "rudraksh" && $password == "rudraksh@123")
+        {
+            $_SESSION["userlogin"] = "logined";
+            echo 1;
+        }else{
+            echo 0;
+        }
+    }
+
+    // add post
+    if(isset($_POST["addpost"]))
+    {
+        $title = $_POST["title"];
+        $desc = $_POST["desc"];
+        $img = $_FILES["img"]["name"];
+        $date = time();
+        $res = $model->addPost([$title,$desc,$img,$date]);
+        move_uploaded_file($_FILES["img"]["tmp_name"],"../assets/uploads/$img");
+        echo $res;
+    }
+
+    // delete post
+    if(isset($_POST["deletepost"]))
+    {
+        $id = $_POST["id"];
+        $img = $_POST["img"];
+        $res = $model->deletePost($id);
+        unlink("../assets/uploads/$img");
+        echo $res;
     }
 }
 

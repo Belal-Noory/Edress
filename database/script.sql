@@ -21,4 +21,12 @@ CREATE TABLE eligibility(
     visa VARCHAR(255),
     country VARCHAR(255),
     states int
-)
+);
+
+CREATE TABLE post(
+    id int PRIMARY key AUTO_INCREMENT,
+    title VARCHAR(255),
+    details text,
+    attachment VARCHAR(255),
+    regdate BIGINT
+);

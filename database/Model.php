@@ -28,4 +28,29 @@ class Model
         return $result;
     }
 
+    // add post
+    public function addPost($params)
+    {
+        $query = "INSERT INTO post(title,details,attachment,regdate)
+         VALUES(?,?,?,?)";
+        $result = $this->conn->Query($query, $params, true);
+        return $result;
+    }
+
+    // get posts
+    public function getPosts()
+    {
+        $query = "SELECT * FROM post";
+        $result = $this->conn->Query($query);
+        return $result;
+    }
+
+     // delete post
+     public function deletePost($id)
+     {
+         $query = "DELETE FROM post WHERE id = ?";
+         $result = $this->conn->Query($query,[$id]);
+         return $result->rowCount();
+     }
+
 }
