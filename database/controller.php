@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"];
         $visa = $_POST["visa"];
         $country = $_POST["country"];
-        $res = $model->addEnq([$fname,$phone,$email,$visa,$country,0]);
+        $res = $model->addEnq([$fname,$phone,$email,$visa,$country,0,time()]);
         echo $res;
     }
 
@@ -30,24 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $experince = $_POST["experince"];
             $visa = $_POST["visa"];
             $country = $_POST["country"];
-            $res = $model->addEligibility([$fname,$phone,$email,$age,$education,$experince,$visa,$country,0]);
+            $res = $model->addEligibility([$fname,$phone,$email,$age,$education,$experince,$visa,$country,0,time()]);
             echo $res;
         }
         else{
-            echo 0;
-        }
-    }
-
-    // login
-    if(isset($_POST["login"]))
-    {
-        $username = $_POST["loginUsername"];
-        $password = $_POST["loginPassword"];
-        if($username == "rudraksh" && $password == "rudraksh@123")
-        {
-            $_SESSION["userlogin"] = "logined";
-            echo 1;
-        }else{
             echo 0;
         }
     }
@@ -73,6 +59,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         unlink("../assets/uploads/$img");
         echo $res;
     }
+
+     // delete enq
+     if(isset($_POST["deleteenq"]))
+     {
+         $id = $_POST["id"];
+         $res = $model->deleteEnq($id);
+         echo $res;
+     }
+
+     // delete eligibility
+     if(isset($_POST["deleteelg"]))
+     {
+         $id = $_POST["id"];
+         $res = $model->deleteElig($id);
+         echo $res;
+     }
+
+      // login
+    if(isset($_POST["login"]))
+    {
+        $username = $_POST["loginUsername"];
+        $password = $_POST["loginPassword"];
+        if($username == "rudraksh" && $password == "rudraksh@123")
+        {
+            $_SESSION["userlogin"] = "logined";
+            echo 1;
+        }else{
+            echo 0;
+        }
+    }
+
+     // logout
+     if(isset($_POST["logout"]))
+     {
+        session_destroy();
+        echo 1;
+     }
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {

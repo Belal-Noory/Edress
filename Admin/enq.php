@@ -15,7 +15,7 @@ $model = new Model();
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dashboard</title>
+  <title>Dashboard - Enquery</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="all,follow">
@@ -73,8 +73,8 @@ $model = new Model();
       <div class="main-menu">
         <h5 class="sidenav-heading">Main</h5>
         <ul id="side-main-menu" class="side-menu list-unstyled">
-          <li class="active"><a href="dashboard.php"> <i class="icon-home"></i>Home </a></li>
-          <li><a href="enq.php"> <i class="icon-grid"></i>Enqueries </a></li>
+          <li><a href="dashboard.php"> <i class="icon-home"></i>Home </a></li>
+          <li class="active"><a href="enq.php"> <i class="icon-grid"></i>Enqueries </a></li>
           <li><a href="elig.php"> <i class="fa fa-bar-chart"></i>Eligibilities </a></li>
           <li><a href="#" id="btnlogout"><i class="fa fa-lock"></i>Log out </a></li>
         </ul>
@@ -82,49 +82,11 @@ $model = new Model();
     </div>
   </nav>
   <div class="page">
-
-    <section class="forms">
       <div class="container-fluid">
-        <!-- Page Header-->
-        <header>
-          <h1 class="h3 display">Blog Posts </h1>
-        </header>
-        <div class="container">
-          <div class="card">
-            <div class="card-header d-flex align-items-center">
-              <h4>Add new post</h4>
-            </div>
-            <div class="card-body">
-              <p>Give happy news to your recpective customers.</p>
-              <form enctype="multipart/form-data" id="postform">
-                <div class="row">
-                  <div class="form-group col">
-                    <label>Title</label>
-                    <input type="text" placeholder="Title" name="title" class="form-control" required>
-                  </div>
-                  <div class="form-group col">
-                    <label><span class="fa fa-upload"></span> Image</label>
-                    <input type="file" name="img" class="form-control" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <textarea placeholder="Details" name="desc" class="form-control" required></textarea>
-                </div>
-                <div class="form-group">
-                  <button class="btn btn-primary" type="submit" id="btnaddpost">
-                    <span class="fa fa-send"></span> Add Post
-                  </button>
-                  <span class="fa fa-spinner fa-spin fa-2x hide ml-2" id="loader"></span>
-                </div>
-                <input type="hidden" name="addpost">
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="container">
+        <div class="container mt-4">
           <div class="card">
             <div class="card-header">
-              <h4>Posts</h4>
+              <h4>Enquries Requests</h4>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -132,22 +94,31 @@ $model = new Model();
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Title</th>
-                      <th>Details</th>
+                      <th>Name</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      <th>Visa</th>
+                      <th>Country</th>
+                      <th>Date</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php 
-                      $posts_data = $model->getPosts();
+                      $posts_data = $model->getEnqs();
                       $posts = $posts_data->fetchAll(PDO::FETCH_OBJ);
                       $counter = 1;
                       foreach ($posts as $post) {
+                        $date = date("m/d/Y",$post->regdate);
                         echo "<tr>
                           <td>$counter</td>
-                          <td>$post->title</td>
-                          <td>$post->details</td>
-                          <td><span class='fa fa-trash text-danger fa-2x pointer postDelete' data-href='$post->id' id='$post->attachment'></span></td>
+                          <td>$post->fname</td>
+                          <td>$post->phone</td>
+                          <td>$post->email</td>
+                          <td>$post->visa</td>
+                          <td>$post->country</td>
+                          <td>$date</td>
+                          <td><span class='fa fa-trash text-danger fa-2x pointer postDelete' data-href='$post->id'></span></td>
                         </tr>";
                       }
                     ?>
@@ -158,7 +129,6 @@ $model = new Model();
           </div>
         </div>
       </div>
-    </section>
 
     <!-- fotter starts -->
     <footer class="main-footer">
@@ -185,32 +155,11 @@ $model = new Model();
   <script src="js/front.js"></script>
   <script>
     $(document).ready(function() {
-      // add post
-      $("#postform").on("submit", function(e) {
-        e.preventDefault();
-        $("#btnaddpost").hide();
-        $("#loader").removeClass();
-        $.ajax({
-          url: "../database/controller.php",
-          type: "POST",
-          data: new FormData(this),
-          contentType: false,
-          cache: false,
-          processData: false,
-          success: function(data) {
-            console.log(data);
-            $("#btnaddpost").show();
-            $("#loader").addClass();
-          }
-        });
-      });
-
       // delete post
       $(document).on("click",".postDelete",function(){
         id = $(this).attr("data-href");
-        img = $(this).attr("id");
         ths = $(this);
-        $.post("../database/controller.php",{deletepost:true,id:id,img:img},function(data){
+        $.post("../database/controller.php",{deleteenq:true,id:id},function(data){
           console.log(data);
           $(ths).parent().parent().fadeOut();
         });
