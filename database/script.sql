@@ -7,7 +7,8 @@ CREATE TABLE enquiry(
     email VARCHAR(255),
     visa VARCHAR(255),
     country VARCHAR(255),
-    states int
+    states int,
+    regdate INT detault null
 );
 
 CREATE TABLE eligibility(
@@ -20,7 +21,8 @@ CREATE TABLE eligibility(
     experince VARCHAR(255),
     visa VARCHAR(255),
     country VARCHAR(255),
-    states int
+    states int,
+    regdate INT detault null
 );
 
 CREATE TABLE post(
