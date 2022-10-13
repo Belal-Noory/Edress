@@ -178,8 +178,8 @@ include("Master/header.php");
                     </button>
                   </div>
                 </div>
-                <span class="alert alert-success mt-1 p-2 d-block text-white d-none" id="msgalert">Thank you for sending your request ;)</span>
               </form>
+              <span class="alert alert-success mt-1 p-2 d-block text-white d-none" id="msgalertEl">Thank you for sending your request ;)</span>
             </div>
           </div>
         </div>
@@ -209,13 +209,13 @@ include("Master/footer.php");
       $(ths).children("span").first().removeClass("d-none");
       $.post("database/controller.php", $("#eligibility-form").serialize(), function(data) {
         console.log(data);
-        if (data > 0) {
+        if (data != 0 || data != "0") {
           $(ths).children("span").first().addClass("d-none");
           $(ths).children("span").last().removeClass("d-none");
-          $("#msgalert").removeClass("alert-danger").addClass("alert-success").text("Thank for your request ;)");
+          $("#msgalertEl").text("Thank for your request ;)").removeClass("d-none");
           $('#eligibility-form').trigger("reset");
           setTimeout(() => {
-            $("#msgalert").addClass("d-none");
+            $("#msgalertEl").addClass("d-none");
           }, 50000);
         }else{
           $(ths).children("span").first().addClass("d-none");
